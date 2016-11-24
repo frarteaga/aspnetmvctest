@@ -14,6 +14,13 @@ namespace WebApplication1
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "AuthorByCountryAndFName",
+                url: "authors/{country}/{fname}",
+                defaults: new { controller = "Author", action = "ByContryAndFName" },
+                constraints: new { fname = @"." }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

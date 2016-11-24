@@ -1,8 +1,18 @@
-﻿@model WebApplication1.Models.Author
+﻿@*@using WebApplication1.Models*@
+@*@using WebApplication1.Models*@
+@*@model WebApplication1.Models.Author*@
+@model IEnumerable<Author>
 
 @{
     ViewBag.Title = "title";
-    Layout = "_Layout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>title</h2>
+<h2>Autores</h2>
+
+<ul>
+@foreach (Author a in Model)
+{
+    <li>- @a.Name</li>
+}
+</ul>
